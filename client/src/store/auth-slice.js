@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const authSlice = createSlice({
   name: "auth",
-  initialState: { isLoggedIn: false, fullName: "" },
+  initialState: { isLoggedIn: false, fullName: "", username: "", password: "" },
   reducers: {
     login(state) {
       state.isLoggedIn = true;
@@ -13,6 +13,12 @@ const authSlice = createSlice({
     inputFullName(state, fullNameInput) {
       state.fullName = fullNameInput;
     },
+    inputUsername(state, usernameInput) {
+      state.username = usernameInput
+    },
+    inputPassword(state, passwordInput) {
+      state.username = passwordInput
+    }
   },
 });
 
