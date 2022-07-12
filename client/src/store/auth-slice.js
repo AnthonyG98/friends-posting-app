@@ -10,8 +10,8 @@ const authSlice = createSlice({
     logout(state) {
       state.isLoggedIn = false;
     },
-    inputFullName(state, other) {
-      state.fullName = other;
+    inputFullName(state, fullNameInput) {
+      state.fullName = fullNameInput;
     },
   },
 });
