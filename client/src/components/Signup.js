@@ -4,10 +4,9 @@ import { authActions } from "../store/auth-slice";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
-function SignUp({ fullName, username, password }) {
+function SignUp() {
   let url = `http://localhost:3001`
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   const userFullName = useSelector((state) => state.auth.fullName);
   const userUsername = useSelector((state) => state.auth.username);
@@ -43,20 +42,19 @@ function SignUp({ fullName, username, password }) {
             onChange={(e) => {
               changeFullName(e.target.value);
             }}
-            value={fullName}
             placeholder="Full Name"
           />
         </div>
         <div className="input-container">
           {/* <label>Username:</label> */}
-          <input type="text" value={username} placeholder="Username" 
+          <input type="text" placeholder="Username" 
           onChange={(e) => {
               changeUsername(e.target.value);
             }}/>
         </div>
         <div className="input-container">
           {/* <label>Password</label> */}
-          <input type="password" value={password} placeholder="Password" 
+          <input type="password" placeholder="Password" 
            onChange={(e) => {
             changePassword(e.target.value);
           }}
