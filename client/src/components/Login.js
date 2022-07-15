@@ -4,7 +4,7 @@ import { authActions } from "../store/auth-slice";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
-function Login({ fullName, username, password }) {
+function Login({ fullName, username }) {
   let history = useNavigate();
   let url = `http://localhost:3001`
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function Login({ fullName, username, password }) {
     dispatch(authActions.inputUsername(username));
   };
   const changePassword = (password) => {
-    dispatch(authActions.inputFullName(password));
+    dispatch(authActions.inputPassword(password));
   };
  
   const onLogin = () =>{
@@ -27,12 +27,16 @@ function Login({ fullName, username, password }) {
       password: userPassword
     }
     axios.post(`${url}/users/login`, loginData).then(response =>{
-      if(response.data.error){
-        loginErrText.innerText = response.data.error
-      } else {
-        history("/dashboard");
-      }
+      // if(response.data.error){
+      //   loginErrText.innerText = response.data.error;
+      // } else {
+      //   // history("/dashboard");
+      //   console.log(response.data)
+      //   console.log(userPassword.payload);
+      // }
+      console.log(response.data)
     })
+    console.log(userPassword.payload)
   }
   return (
     <div className="form-container">
@@ -49,7 +53,7 @@ function Login({ fullName, username, password }) {
         </div>
         <div className="input-container">
           {/* <label>Password</label> */}
-          <input type="password" value={password} placeholder="Password"
+          <input type="password" placeholder="Password"
           onChange={(e) => {
             changePassword(e.target.value);
           }}

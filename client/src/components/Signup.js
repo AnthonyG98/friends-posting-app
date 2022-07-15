@@ -19,7 +19,7 @@ function SignUp() {
     dispatch(authActions.inputUsername(username));
   };
   const changePassword = (password) => {
-    dispatch(authActions.inputFullName(password));
+    dispatch(authActions.inputPassword(password));
   };
   const signUpUser = () =>{
     const signUpData = {
@@ -28,6 +28,7 @@ function SignUp() {
       password: userPassword,
       profile_picture: "default_nlfrji"
     }
+    console.log(signUpData.password)
     axios.post(`${url}/users`, signUpData).then(response =>{
       console.log(response.data)
     })
