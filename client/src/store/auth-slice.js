@@ -14,7 +14,7 @@ const authSlice = createSlice({
       state.fullName = fullNameInput;
     },
     inputUsername(state, usernameInput) {
-      state.username = usernameInput
+      state.username = usernameInput;
     },
     inputPassword(state, passwordInput) {
       state.username = passwordInput

@@ -5,7 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 function SignUp() {
-  let url = `http://localhost:3001`
+  let url = `http://localhost:3001`;
   const dispatch = useDispatch();
 
   const userFullName = useSelector((state) => state.auth.fullName);
@@ -25,7 +25,8 @@ function SignUp() {
     const signUpData = {
       fullName: userFullName,
       username: userUsername,
-      password: userPassword
+      password: userPassword,
+      profile_picture: "default_nlfrji"
     }
     axios.post(`${url}/users`, signUpData).then(response =>{
       console.log(response.data)

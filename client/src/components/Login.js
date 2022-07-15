@@ -5,6 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 function Login({ fullName, username, password }) {
+  let history = useNavigate();
   let url = `http://localhost:3001`
   const dispatch = useDispatch();
   const userUsername = useSelector((state) => state.auth.username);
@@ -20,21 +21,24 @@ function Login({ fullName, username, password }) {
   };
  
   const onLogin = () =>{
+    const loginErrText  = document.getElementById("login-err");
     const loginData = {
       username: userUsername,
       password: userPassword
     }
     axios.post(`${url}/users/login`, loginData).then(response =>{
-      console.log(response.data)
+      if(response.data.error){
+        loginErrText.innerText = response.data.error
+      } else {
+        history("/dashboard");
+      }
     })
   }
   return (
     <div className="form-container">
       <div className="inputs">
         <h1 className="login-head">LOGIN</h1>
-        <div className="input-container">
-          {/* <label>Full Name:</label> */}
-        </div>
+        <p id="login-err"></p>
         <div className="input-container">
           {/* <label>Username:</label> */}
           <input type="text" placeholder="Username"

@@ -50,6 +50,12 @@ body {
 .login-head {
        color: #fff;
 }
+#login-err {
+       color: rgb(192, 0, 0);
+       font-size: 1.25em;
+       line-height: 0;
+       letter-spacing: 3px;
+}
 .form-btn {
        width: 60%;
        background-color: transparent;
