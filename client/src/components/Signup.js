@@ -5,6 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 function SignUp() {
+  let history = useNavigate()
   let url = `http://localhost:3001`;
   const dispatch = useDispatch();
 
@@ -30,7 +31,7 @@ function SignUp() {
     }
     console.log(signUpData.password)
     axios.post(`${url}/users`, signUpData).then(response =>{
-      console.log(response.data)
+      history("/dashboard")
     })
   }
   return (

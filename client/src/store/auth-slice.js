@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const authSlice = createSlice({
   name: "auth",
-  initialState: { isLoggedIn: false, fullName: "", username: "", password: "" },
+  initialState: { isLoggedIn: false, fullName: "", username: "", password: "", profilePic: "" },
   reducers: {
     login(state) {
       state.isLoggedIn = true;
@@ -18,6 +18,9 @@ const authSlice = createSlice({
     },
     inputPassword(state, passwordInput) {
       state.password = passwordInput
+    },
+    profileImg(state, profilePicture){
+      state.profilePic = profilePicture;
     }
   },
 });

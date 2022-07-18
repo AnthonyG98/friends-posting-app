@@ -9,24 +9,27 @@ function Dashboard() {
     let url = `http://localhost:3001`;
     const dispatch = useDispatch();
     const userUsername = useSelector((state) => state.auth.username);
+    const userProfileImg = useSelector((state) => state.auth.profilePic);
+    
+    const changeProfilePicture = (img) => {
+      dispatch(authActions.profileImg(img));
+    };
     const getUser = () =>{
         axios.get(`${url}/users/${userUsername.payload}`).then(response =>{
-            console.log(response);
+          console.log(response.data)
         })
     }
     useEffect(() => {
       getUser()
-    }, [])
+    }, 
+    [])
     
   return (
     <div className='dashboard-container'>
+      <div className='dash-head'>
         <Header />
-        <div>Dashboard</div>
-        <Image
-          className="searchImg"
-          cloudName="delktfw1a"
-        //   publicId={senderProfileImage}
-        />
+      </div>
+        
     </div>
   )
 }

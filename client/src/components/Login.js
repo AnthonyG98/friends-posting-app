@@ -27,16 +27,12 @@ function Login({ fullName, username }) {
       password: userPassword
     }
     axios.post(`${url}/users/login`, loginData).then(response =>{
-      // if(response.data.error){
-      //   loginErrText.innerText = response.data.error;
-      // } else {
-      //   // history("/dashboard");
-      //   console.log(response.data)
-      //   console.log(userPassword.payload);
-      // }
-      console.log(response.data)
+      if(response.data.error){
+        loginErrText.innerText = response.data.error;
+      } else {
+        history("/dashboard");
+      }
     })
-    console.log(userPassword.payload)
   }
   return (
     <div className="form-container">
