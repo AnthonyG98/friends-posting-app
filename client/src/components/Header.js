@@ -25,10 +25,14 @@ function Header() {
   return (
     <nav className='nav-container'>
         <div className='nav-components'>
+          <div className='nav-icon'>
             <i class="fas fa-user-friends"></i>
+          </div>
+            <i class="fas fa-search"></i>
+            <input type="text" className='search-bar'/>
         </div>
         <Image
-          className="searchImg"
+          className="dashImg"
           cloudName="delktfw1a"
           publicId={userProfileImg.payload}
         />
