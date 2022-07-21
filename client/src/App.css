@@ -97,6 +97,7 @@ body {
        flex-direction: row;
        width: 100%;
        justify-content: space-between;
+       align-items: center;
        background-color: #001e27;
 }
 .nav-components {
@@ -117,14 +118,12 @@ body {
        padding: 15px;
        font-size: 15px;
        border-radius: 90px;
-       margin-left: 15px;
 }
 .dashImg{
        width: 75px;
        height: 75px;
        border-radius: 50%;
        object-fit: cover;
-       margin-right: 15px;
 }
 .fa-search {
        margin-left: 10px;
@@ -136,5 +135,43 @@ body {
        font-size: 1em;
        margin-left: 5px;
        color: #fff;
+       margin-right: 15px;
        font-family: 'florencesansregular';
+}
+.dash-head {
+       color: #fff;
+       text-align: center;
+}
+.dash-input-container {
+       display: flex;
+       width: 30%;
+       justify-content: center;
+       align-items: center;
+       margin-left: auto;
+       margin-right: auto;
+       margin-top: 15px;
+}
+.dash-open-new {
+        width: 100%;
+        height: 2.75em;
+        border-radius: 5px;
+        border: 1px solid #001e27;
+        margin-left: 5px;
+        background-color: rgb(226, 248, 255);
+}
+.dash-open-new::placeholder {
+       color: rgb(129, 158, 167);
+       font-size: 1.25em;
+       font-family: 'florencesansregular';
+       letter-spacing: 2px;
+       font-weight: bold;
+}
+.dash-open-new:hover {
+       cursor: pointer;
+}
+.dashInputImg {
+       width: 45px;
+       height: 45px;
+       border-radius: 50%;
+       object-fit: cover;
 }

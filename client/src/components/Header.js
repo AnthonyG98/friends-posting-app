@@ -30,6 +30,7 @@ function Header() {
           </div>
             <i class="fas fa-search"></i>
             <input type="text" className='search-bar'/>
+            <h1 className='dash-head'>DASHBOARD</h1>
         </div>
         <Image
           className="dashImg"

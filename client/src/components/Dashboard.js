@@ -29,7 +29,14 @@ function Dashboard() {
       <div className='dash-head'>
         <Header />
       </div>
-        
+      <div className='dash-input-container'>
+      <Image
+          className="dashInputImg"
+          cloudName="delktfw1a"
+          publicId={userProfileImg.payload}
+        />
+        <input className='dash-open-new' placeholder='START A POST.'/>
+      </div>
     </div>
   )
 }
