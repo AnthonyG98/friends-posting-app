@@ -18,7 +18,6 @@ router.post("/", async (req, res) => {
   });
   res.json(password);
 });
-
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
   const user = await Users.findOne({  where: { username: username.payload } } );
@@ -27,29 +26,12 @@ router.post("/login", async (req, res) => {
   } 
   if(user){
     const validPass = await bcrypt.compare(password.payload, user.password);
-    if(validPass){
-      console.log("valid")
-    }else {
-      console.log("not valid");
-      console.log(password);
-      console.log(user.password)
-    }
-    }
-  // if (user){
-  //   bcrypt.hash(password.payload, 10).then(hash =>{
-      // bcrypt.compare(hash, user.password, function(err, result) {
-        // if (result) {
-        //   console.log("It matches!")
-        // }
-        // else {
-        //   console.log("Invalid password!");
-        //   console.log(user.password);
-        //   console.log(hash);
-        //   //Input password not matching
-        // }
-  //       });
-  //   })
-  // }
+      if(validPass){
+        res.json(user)
+      }else {
+        res.json({error: "Wrong username or password."})
+      }
+    }   
 });
 router.get("/:username", async(req, res)=>{
   const user = req.params.username;

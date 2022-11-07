@@ -11,6 +11,8 @@ const db = require("./models");
 //routes
 const users = require("./routes/users");
 app.use("/users", users);
+const posts = require("./routes/dashboard");
+app.use("/post", posts);
 
 db.sequelize.sync().then(()=>{
     app.listen(process.env.PORT || 3001, ()=>{
